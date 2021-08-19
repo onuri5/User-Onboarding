@@ -3,7 +3,7 @@ import React from 'react'
 
 const Form = props => {
     
-    const { values, change, submit } = props;
+    const { values, change, submit, disabled, errors} = props;
 
 
     const onChange = evt => {
@@ -21,6 +21,13 @@ const Form = props => {
     return (
         <div>
             <form onSubmit={onSubmit}>
+                <div className='errors'>
+                    <div>{errors.first_name}</div>
+                    <div>{errors.last_name}</div>
+                    <div>{errors.email}</div>
+                    <div>{errors.password}</div>
+                    <div>{errors.terms}</div>
+                </div>
                 <label>First Name:&nbsp;
                     <input
                         name='first_name'
@@ -57,12 +64,12 @@ const Form = props => {
                     <input 
                         type='checkbox'
                         name='terms'
-                        value={values.terms}
+                        checked={values.terms}
                         onChange={onChange}
                     />
                 </label>
 
-                <button>submit</button>
+                <button disabled={disabled}>submit</button>
             </form>
         </div>
     )
