@@ -5,10 +5,12 @@ import React, { useState, useEffect } from 'react'
 import Form from './Form/Form.js';
 
 const initialFormValues = {
-  name: '', 
+  first_name: '', 
+  last_name: '',
   email: '', 
   password: '',
-  terms: false
+  terms: false,
+  test: false
 }
 
 function App() {
@@ -25,10 +27,10 @@ function App() {
   const postNewWorker = newWorker => {
     axios.post('https://reqres.in/api/users', newWorker)
       .then(res => {
-        setWorkers(res.data.data, ...workers)
+        setWorkers([res.data, ...workers])
       }).catch(err => console.error(err));
 
-      setFormValues(initialFormValues);
+    setFormValues(initialFormValues);
   }
 
   const inputChange = (name, value) => {
@@ -39,13 +41,12 @@ function App() {
 
   const formSubmit = () => {
     const newWorker = {
-      name: formValues.name.trim(),
+      first_name: formValues.first_name.trim(),
+      last_name: formValues.last_name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      terms: ['Terms of Service'].filter(term => !!formValues[term])
-      // 🔥 STEP 7- WHAT ABOUT HOBBIES?
+      terms: ['terms'].filter(test => !!formValues[test])
     }
-    // 🔥 STEP 8- POST NEW FRIEND USING HELPER
     postNewWorker(newWorker);
   }
 
@@ -62,7 +63,6 @@ function App() {
     />
      {workers !== undefined ? workers.map(worker => {
       return <div>
-          <img src={`${worker.avatar}`} alt='Personal portrait'/>
           <h3>{`${worker.first_name} ${worker.last_name}`}</h3>
           <p>{`${worker.email}`}</p>
         </div>

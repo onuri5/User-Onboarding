@@ -5,6 +5,7 @@ const Form = props => {
     
     const { values, change, submit } = props;
 
+
     const onChange = evt => {
         const { name, value, checked, type } = evt.target
         const valueToUse = type === 'checkbox' ? checked : value;
@@ -20,11 +21,19 @@ const Form = props => {
     return (
         <div>
             <form onSubmit={onSubmit}>
-                <label>Name:&nbsp;
+                <label>First Name:&nbsp;
                     <input
-                        name='name'
+                        name='first_name'
                         type='text'
-                        value={values.name}
+                        value={values.first_name}
+                        onChange={onChange}
+                    />
+                </label>
+                <label>Last Name:&nbsp;
+                    <input
+                        name='last_name'
+                        type='text'
+                        value={values.last_name}
                         onChange={onChange}
                     />
                 </label>
@@ -55,9 +64,6 @@ const Form = props => {
 
                 <button>submit</button>
             </form>
-
-
-
         </div>
     )
 }
