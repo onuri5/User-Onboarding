@@ -90,12 +90,14 @@ function App() {
       disabled={disabled}
       errors={formErrors}
     />
-     {workers !== undefined ? workers.map(worker => {
-      return <div>
-          <h3>{`${worker.first_name} ${worker.last_name}`}</h3>
-          <p>{`${worker.email}`}</p>
-        </div>
-     }) : ''}
+      <div className='workerContainer'>
+        {workers !== undefined ? workers.map(worker => {
+          return <div className='worker'>
+              <h3>{`${worker.first_name} ${worker.last_name}`}</h3>
+              <p>{`${worker.email}`}</p>
+            </div>
+        }) : ''}
+      </div>
     </div>
   );
 }
