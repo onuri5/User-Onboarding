@@ -1,0 +1,54 @@
+
+html {
+  background-color: #3d5a80;
+}
+
+.App {
+  text-align: center;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.workerContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.worker {
+  background-color: #ee6c4d;
+  color: white;
+  padding: .5rem;
+  margin: 1rem;
+  width: 250px;
+  border-radius: 50px;
+}
+
+.formContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+  margin: 2rem;
+  color: #e0fbfc;
+}
+
+.container {
+  border: solid black 1px;
+  width: 400px;
+  height: 500px;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ee6c4d;
+  color: white;
+}
+
+.errors {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 1rem;
+}
